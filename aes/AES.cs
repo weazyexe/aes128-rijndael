@@ -69,6 +69,7 @@ namespace aes
         
         public AES(byte[,] _cipherKey)
         {
+            cipherKey = new byte[4, 4];
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                     cipherKey[i, j] = _cipherKey[i, j];
@@ -328,6 +329,8 @@ namespace aes
         private static void KeySchedule()
         {
             byte[,] allRoundKeys = new byte[4, 44];
+
+            RoundKey.Clear();
 
             // GET ALL ROUND KEYS MATRIX
             for (int i = 0; i < 4; i++)
