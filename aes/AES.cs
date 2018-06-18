@@ -75,7 +75,11 @@ namespace aes
         }
 
 
-
+        /// <summary>
+        /// String encrypt to byte array
+        /// </summary>
+        /// <param name="source">String to encrypt</param>
+        /// <returns></returns>
         public static byte[] Encrypt(string source)
         {
             result.Clear();
@@ -111,6 +115,11 @@ namespace aes
             return ByteListToArray(result);
         }
 
+        /// <summary>
+        /// Byte array decrypt to string
+        /// </summary>
+        /// <param name="source">Byte array to decrypt</param>
+        /// <returns></returns>
         public static string Decrypt(byte[] source)
         {
             result.Clear();
@@ -145,7 +154,25 @@ namespace aes
             return ByteListToString(result);
         }
 
+        /// <summary>
+        /// Generate random cipher key
+        /// </summary>
+        /// <returns></returns>
+        public static byte[] GenerateKey()
+        {
+            byte[] gkey = new byte[16];
+            Random rand = new Random();
 
+            for (int i = 0; i < 16; i++)
+                gkey[i] = (byte)rand.Next(0, 256);
+
+            return gkey;
+        }
+
+
+        /// <summary>
+        /// Get byte array from string and generate states list
+        /// </summary>
         private static void GetAllStates(string source)
         {
             states.Clear();
@@ -181,6 +208,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Generate states list from byte array
+        /// </summary>
         private static void GetAllStates(byte[] source)
         {
             states.Clear();
@@ -215,6 +245,11 @@ namespace aes
         }
 
 
+        /// <summary>
+        /// Get byte block from 16byte array
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns></returns>
         private static byte[] ByteBlockToArray(byte[,] matrix)
         {
             int counter = 0;
@@ -229,6 +264,11 @@ namespace aes
         }
 
 
+        /// <summary>
+        /// Convert byte list to array
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         private static byte[] ByteListToArray(List<byte[]> list)
         {
             byte[] res = new byte[countOfStates * 16];
@@ -240,6 +280,11 @@ namespace aes
             return res;
         }
 
+        /// <summary>
+        /// Convert byte list to string
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         private static string ByteListToString(List<byte[]> list)
         {
             string res = "";
@@ -252,6 +297,11 @@ namespace aes
         }
 
 
+        /// <summary>
+        /// Get element from SBox table
+        /// </summary>
+        /// <param name="el"></param>
+        /// <returns></returns>
         private static byte GetSBox(byte el)
         {
             if (el > 15)
@@ -259,6 +309,11 @@ namespace aes
             else return sBox[0, Convert.ToInt16(Convert.ToString(el, 16)[0].ToString(), 16)];
         }
 
+        /// <summary>
+        /// Get element from Inverse SBox table
+        /// </summary>
+        /// <param name="el"></param>
+        /// <returns></returns>
         private static byte GetInvSBox(byte el)
         {
             if (el > 15)
@@ -267,6 +322,9 @@ namespace aes
         }
 
 
+        /// <summary>
+        /// Generate round keys
+        /// </summary>
         private static void KeySchedule()
         {
             byte[,] allRoundKeys = new byte[4, 44];
@@ -327,6 +385,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Add round key to block
+        /// </summary>
         private static void AddRoundKey()
         {
             for (int i = 0; i < 4; i++)
@@ -341,6 +402,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Swap bytes to bytes from SBox
+        /// </summary>
         private static void SubBytes()
         {
             for (int i = 0; i < 4; i++)
@@ -352,6 +416,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Shift rows left
+        /// </summary>
         private static void ShiftRows()
         {
             for (int i = 1; i < 4; i++)
@@ -392,6 +459,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Mix columns, multiply columns on GF
+        /// </summary>
         private static void MixColumns()
         {
             byte[] temp = new byte[4];
@@ -417,6 +487,9 @@ namespace aes
         }
 
 
+        /// <summary>
+        /// Swap bytes to bytes from Inverse SBox
+        /// </summary>
         private static void InvSubBytes()
         {
             for (int i = 0; i < 4; i++)
@@ -428,6 +501,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Shift rows right
+        /// </summary>
         private static void InvShiftRows()
         {
             for (int i = 1; i < 4; i++)
@@ -468,6 +544,9 @@ namespace aes
             }
         }
 
+        /// <summary>
+        /// Inverse mix columns, multiply columns on inverse GF
+        /// </summary>
         private static void InvMixColumns()
         {
             byte[] temp = new byte[4];
