@@ -14,11 +14,11 @@ AES aes = new AES(key);
 
 Encrypt:
 ```
-byte[] encryptedArray = AES.Encrypt(sourceString);
+byte[] encryptedArray = aes.Encrypt(sourceString);
 ```
 
 Decrypt example:
 ```
-string decryptedString = AES.Decrypt(byteArr);
+string decryptedString = aes.Decrypt(byteArr);
 ```
 dev. via Microsoft Visual Studio 2017
