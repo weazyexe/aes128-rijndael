@@ -81,7 +81,7 @@ namespace aes
         /// </summary>
         /// <param name="source">String to encrypt</param>
         /// <returns></returns>
-        public static byte[] Encrypt(string source)
+        public byte[] Encrypt(string source)
         {
             result.Clear();
             GetAllStates(source);
@@ -121,7 +121,7 @@ namespace aes
         /// </summary>
         /// <param name="source">Byte array to decrypt</param>
         /// <returns></returns>
-        public static string Decrypt(byte[] source)
+        public string Decrypt(byte[] source)
         {
             result.Clear();
             GetAllStates(source);

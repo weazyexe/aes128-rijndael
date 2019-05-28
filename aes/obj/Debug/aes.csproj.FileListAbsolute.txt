@@ -5,3 +5,10 @@ E:\repositories\aes\aes\obj\Debug\aes.csprojResolveAssemblyReference.cache
 E:\repositories\aes\aes\obj\Debug\aes.csproj.CoreCompileInputs.cache
 E:\repositories\aes\aes\obj\Debug\aes.exe
 E:\repositories\aes\aes\obj\Debug\aes.pdb
+S:\repos\aes128-rijndael\aes\obj\Debug\aes.exe
+S:\repos\aes128-rijndael\aes\obj\Debug\aes.pdb
+S:\repos\aes128-rijndael\aes\bin\Debug\aes.exe.config
+S:\repos\aes128-rijndael\aes\bin\Debug\aes.exe
+S:\repos\aes128-rijndael\aes\bin\Debug\aes.pdb
+S:\repos\aes128-rijndael\aes\obj\Debug\aes.csprojAssemblyReference.cache
+S:\repos\aes128-rijndael\aes\obj\Debug\aes.csproj.CoreCompileInputs.cache
